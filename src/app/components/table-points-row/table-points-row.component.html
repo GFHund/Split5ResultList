@@ -1,0 +1,4 @@
+<td>{{driver.name}}</td>
+<td *ngFor="let raceEvent of raceEvents">
+  {{getPoints(driver.id,raceEvent.id) |async}}
+</td>

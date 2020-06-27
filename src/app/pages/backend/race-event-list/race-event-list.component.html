@@ -1,0 +1,11 @@
+<a [routerLink]="['/backend/race-event',saisonId,'new']">Neues Event anlegen</a>
+<table class="table">
+  <tr *ngFor="let raceEvent of raceEvents">
+    <td>{{raceEvent.title}}</td>
+    <td>
+      <a [routerLink]="['/backend/race-event',saisonId,'edit',raceEvent.id]">Edit Event</a>
+      <a [routerLink]="['/backend/result/',saisonId,raceEvent.id]">Results</a>
+    </td>
+  </tr>
+</table>
+<a [routerLink]="['/backend/saison']">Zurück zur Saison Übersicht</a>

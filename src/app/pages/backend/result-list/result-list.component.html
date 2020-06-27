@@ -1,0 +1,66 @@
+<form (submit)="onSubmitResult(formResult)" id="resultForm" #formResult="ngForm">
+  <input type="hidden" name="id" ngModel>
+  <input type="hidden" name="raceEventId" ngModel>
+  <label>
+    Fahrer:
+    <select name="driverId" ngModel>
+      <option *ngFor="let driver of drivers" value="{{driver.id}}">{{driver.name}}</option>
+    </select>
+  </label>
+  <label>
+    Team:
+    <select name="teamId" ngModel>
+      <option *ngFor="let team of teams" value="{{team.id}}">{{team.name}}</option>
+    </select>
+  </label>
+  <label>
+    Punkte
+    <input type="number" name="points" ngModel required>
+  </label>
+  <label>
+    Position
+    <input name="position" type="number" ngModel required>
+  </label>
+  <label>
+    Quali Position
+    <input name="position" type="number" ngModel>
+  </label>
+  <label>
+    Quali Zeit
+    <input name="position" type="text" ngModel>
+  </label>
+  <label>
+    Schnellste Runde
+    <input name="position" type="text" ngModel>
+  </label>
+  <button type="submit" [disabled]="!formResult.valid">Submit</button>
+</form>
+
+<form (submit)="onSubmitDriver(formDriver)" id="driverForm" #formDriver="ngForm">
+  <input type="hidden" name="id" ngModel>
+  <label>
+    Name
+    <input type="text" name="name" ngModel required>
+  </label>
+  <button type="submit" [disabled]="!formDriver.valid">Add</button>
+</form>
+
+<form (submit)="onSubmitTeam(formTeam)" id="teamForm" #formTeam="ngForm">
+  <input type="hidden" name="id" ngModel>
+  <label>
+    Team
+    <input type="text" name="name" ngModel required>
+  </label>
+  <button type="submit" [disabled]="!formTeam.valid">Add</button>
+</form>
+
+<table class="table">
+  <tr *ngFor="let result of results">
+    <td>{{getDriver(result.driverId)}}</td>
+    <td>{{getTeam(result.teamId)}}</td>
+    <td>{{result.points}}</td>
+    <td>{{result.position}}</td>
+    <td><a [routerLink]="['/backend/result',saisonId,raceEventId,result.id]">edit</a></td>
+  </tr>
+</table>
+<a [routerLink]="['/backend/race-event/',saisonId]">Zurück zur Event Übersicht</a>

@@ -1,0 +1,25 @@
+<div *ngIf="raceEventObj">
+
+<form (ngSubmit)="onSubmit(form)" #form="ngForm">
+  <input type="hidden" name="id" ngModel>
+  <input type="hidden" name="saisonId" ngModel>
+  <label>
+    title
+    <input type="text" name="title" ngModel required>
+  </label>
+  <label>
+    date
+    <input type="date" name="date" ngModel required>
+  </label>
+  <label>
+    icon
+    <select name="icon" ngModel>
+      <option>?</option>
+    </select>
+  </label>
+
+
+  <button type="submit" [disabled]="!form.valid">Submit</button>
+</form>
+<a [routerLink]="['/backend/race-event',saisonId]">Zurück zur Übersicht</a>
+</div>

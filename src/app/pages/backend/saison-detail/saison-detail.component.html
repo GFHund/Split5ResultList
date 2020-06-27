@@ -1,0 +1,12 @@
+<div *ngIf="saisonObj">
+  <div class="bg-success" *ngIf="successMessage">{{successMessage}}</div>
+<form (ngSubmit)="onSubmit(form)" #form="ngForm">
+  <input type="hidden" name="id" ngModel>
+  <label>
+    title
+    <input type="text" name="title" ngModel required>
+  </label>
+
+  <button type="submit" [disabled]="!form.valid">Submit</button>
+</form>
+</div>

@@ -1,0 +1,39 @@
+<form (submit)="onSubmitResult(formResult)" id="resultForm" #formResult="ngForm">
+  <input type="hidden" name="id" ngModel>
+  <input type="hidden" name="raceEventId" ngModel>
+  <label>
+    Fahrer:
+    <select name="driverId" ngModel>
+      <option *ngFor="let driver of drivers" value="{{driver.id}}">{{driver.name}}</option>
+    </select>
+  </label>
+  <label>
+    Team:
+    <select name="teamId" ngModel>
+      <option *ngFor="let team of teams" value="{{team.id}}">{{team.name}}</option>
+    </select>
+  </label>
+  <label>
+    Punkte
+    <input type="number" name="points" ngModel required>
+  </label>
+  <label>
+    Position
+    <input name="position" type="number" ngModel required>
+  </label>
+  <label>
+    Quali Position
+    <input name="qualiPosition" type="number" ngModel>
+  </label>
+  <label>
+    Quali Zeit
+    <input name="timeQuali" type="text" ngModel>
+  </label>
+  <label>
+    Schnellste Runde
+    <input name="time" type="text" ngModel>
+  </label>
+  <button type="submit" [disabled]="!formResult.valid">Submit</button>
+</form>
+<a [routerLink]="['/backend/result',saisonId,raceEventId]">Zurück zur liste</a>
+

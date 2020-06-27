@@ -1,0 +1,14 @@
+
+<a routerLink="/backend/saison/new">New Saison</a>
+
+<table class="table">
+  <tr *ngFor="let saison of saisons">
+    <td>
+      {{saison.title}}
+    </td>
+    <td>
+      <a [routerLink]="['/backend/saison/',saison.id]">Edit</a>
+      <a [routerLink]="['/backend/race-event/',saison.id]">Show Race Events</a>
+    </td>
+  </tr>
+</table>

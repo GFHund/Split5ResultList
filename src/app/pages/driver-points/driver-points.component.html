@@ -1,0 +1,17 @@
+<table class="table">
+  <tr>
+    <th>Fahrername</th>
+    <th *ngFor="let raceEvent of raceEvents">
+      {{raceEvent.title}}
+    </th>
+    <th>Gesamt</th>
+  </tr>
+  <!--app-table-points-row [driver]="driver" [raceEvents]="raceEvents"-->
+  <tr *ngFor="let driver of results">
+    <td>{{driver.name}}</td>
+    <td *ngFor="let result of driver.results">
+      {{result.points}}
+    </td>
+    <td>{{driver.totalPoints}}</td>
+  </tr>
+</table>

@@ -1,0 +1,6 @@
+<a routerLink="/login">login</a>
+<ul>
+  <li *ngFor="let saison of saisons">
+    <a [routerLink]="['/saison-detail/',saison.id]">{{saison.title}}</a>
+  </li>
+</ul>
