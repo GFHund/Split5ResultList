@@ -184,7 +184,7 @@ export class ResultService {
           }
         }
         ret.push({
-          name: driverList[driverListIndex].name,
+          name: teamList[teamListIndex].name,
           results: raceResults,
           totalPoints,
         });
